@@ -31,6 +31,7 @@ ALLOWED_HOSTS = []
 # Application definition
 
 INSTALLED_APPS = [
+    "unfold",
     'rest_framework',
     'django.contrib.admin',
     'django.contrib.auth',
@@ -38,6 +39,7 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'shop',
 ]
 
 MIDDLEWARE = [
@@ -120,3 +122,60 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
 STATIC_URL = 'static/'
+
+#Сховище зображень
+
+MEDIA_URL = '/media/'
+MEDIA_ROOT = BASE_DIR / 'media'
+
+# django-unfold (UI адмін-панелі django)
+
+UNFOLD = {
+    # 🏷 Заголовки
+    "SITE_TITLE": "Сервісний центр",
+    "SITE_HEADER": "Панель адміністратора",
+    "SITE_SUBHEADER": "Керування системою",
+
+    # 🧭 Брендинг
+    "SITE_SYMBOL": "🛠",
+    "SITE_LOGO": None,  # або шлях до твого логотипу
+    "SITE_ICON": None,
+
+    # 🎨 Кольори (сучасний синьо-фіолетовий стиль)
+    "COLORS": {
+        "primary": {
+            "50": "oklch(97% 0.02 270)",
+            "100": "oklch(94% 0.04 270)",
+            "200": "oklch(88% 0.08 270)",
+            "300": "oklch(80% 0.12 270)",
+            "400": "oklch(70% 0.18 270)",
+            "500": "oklch(62% 0.22 270)",
+            "600": "oklch(55% 0.24 270)",
+            "700": "oklch(45% 0.22 270)",
+            "800": "oklch(35% 0.20 270)",
+            "900": "oklch(25% 0.18 270)",
+        }
+    },
+
+    # 🧭 Меню (sidebar)
+    "SIDEBAR": {
+        "show_search": True,
+    },
+
+    "SITE_DROPDOWN": [
+        {
+            "title": "Головна сторінка",
+            "icon": "home",
+            "link": "/",
+        },
+        {
+            "title": "Документація API",
+            "icon": "code",
+            "link": "/api/",
+        },
+    ],
+
+    # 👤 Доступ користувачів (опційно)
+    "SHOW_HISTORY": True,
+    "SHOW_VIEW_ON_SITE": True,
+}
